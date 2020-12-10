@@ -1,5 +1,10 @@
 import React from 'react';
-import {AppBar,Toolbar, IconButton, Typography, Button} from  '@material-ui/core';
+import Categories from '../storefront/categories.js';
+import AppBar from '@material-ui/core/AppBar';
+import Toolbar from '@material-ui/core/Toolbar';
+import IconButton from '@material-ui/core/IconButton';
+import Typography from '@material-ui/core/Typography';
+import Button from '@material-ui/core/Button';
 
 
 
@@ -7,17 +12,19 @@ import {AppBar,Toolbar, IconButton, Typography, Button} from  '@material-ui/core
 function NavBar (){
   return(
     <>
-      <AppBar position="static">
+      <AppBar color="grey" position="static">
         <Toolbar>
           <IconButton edge="start"  color="inherit" aria-label="menu">
         
           </IconButton> 
           <Typography variant="h6" >
-          News 
+          OUR STORE 
           </Typography>
-          <Button edge="end" color="inherit" >CART</Button>
+          <Button edge="end" color="inherit" >CART(0)</Button>
         </Toolbar>
       </AppBar>
+      <span>Browser Our Categories</span>
+      <Categories />
     </>
   );
 }
