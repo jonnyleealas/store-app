@@ -1,5 +1,5 @@
 import React from 'react';
-import Categories from '../storefront/categories.js';
+// import Categories from '../storefront/categories.js';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import IconButton from '@material-ui/core/IconButton';
@@ -24,7 +24,7 @@ function NavBar (){
         </Toolbar>
       </AppBar>
       <span>Browser Our Categories</span>
-      <Categories />
+      {/* <Categories /> */}
     </>
   );
 }
