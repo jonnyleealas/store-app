@@ -1,10 +1,10 @@
 const initialState = {
-  categories: [{
+    
       name: 'electronics',
       displayName: 'thing1',
       description: 'it does stuff' 
-  }]
-};
+  }
+
 
 export default function reducer( state = initialState, action){
   const {type, payload} = action;
@@ -12,14 +12,15 @@ export default function reducer( state = initialState, action){
 
   switch(type){
       case 'INITIALIZE':
-          return{categories: state.categories}
+          return{ categories: parseInt(payload, 10)}
+
+      case 'RENDER_NAME':
+          return {...state, renderName: state.name}
           default:
-              return state;
-      
+              return state;   
 
   }
 }
-
 /* categories.map((item)=>{
   render(
       <div>
@@ -29,17 +30,19 @@ export default function reducer( state = initialState, action){
 })
 */
 
-export const initialize = ()=>{
+export const initialize = (number)=>{
+  number = parseInt(number, 10)
   return{
       type: 'INITIALIZE',
-      // payload: categories
-  }
-
+      payload: number
+ }
 }
 
-
-
-
+export const renderName = () => {
+  return {
+    type: 'RENDER_NAME'
+  }
+}
 
 // anchor or click button for electronics
 // when electronics is clicked take me to electronics products
@@ -48,6 +51,6 @@ export const initialize = ()=>{
 // import this file where we want to render
 // use dispatch and useSelector
 // use dispatch allows us to use some actions
-// dispatch and action
+// dispatch and action;
 
 
