@@ -1,34 +1,53 @@
-import {createStore} from 'redux';
-import {useDispatch, useSelector} from 'react-redux'
-// bring in action to use in dispatch
-// we can use a star to bring everything in: potato.something---> inside of a dispatch to use our reducer
-const dispatch = useDispatch()
+const initialState = {
+  categories: [{
+      name: 'electronics',
+      displayName: 'thing1',
+      description: 'it does stuff' 
+  }]
+};
+
+export default function reducer( state = initialState, action){
+  const {type, payload} = action;
 
 
-// import categories from '../../src/components/storefront/categories.js'
+  switch(type){
+      case 'INITIALIZE':
+          return{categories: state.categories}
+          default:
+              return state;
+      
+
+  }
+}
+
+/* categories.map((item)=>{
+  render(
+      <div>
+      {categorName: item.name}
+      </div>
+  )
+})
+*/
+
+export const initialize = ()=>{
+  return{
+      type: 'INITIALIZE',
+      // payload: categories
+  }
+
+}
 
 
 
 
 
+// anchor or click button for electronics
+// when electronics is clicked take me to electronics products
+// we need a button for food
+// when food is clicked take me to food products
+// import this file where we want to render
+// use dispatch and useSelector
+// use dispatch allows us to use some actions
+// dispatch and action
 
 
-
-
-
-
-
-
-
-
-//     let reducers = 
-//   const store = ()=>{
-//       return createStore(reducers)
-//   }
-
-
-
-
-
-
-// export default function Categories()
