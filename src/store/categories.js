@@ -1,46 +1,52 @@
 const initialState = {
-    
-      name: 'electronics',
-      displayName: 'thing1',
-      description: 'it does stuff' 
-  }
-
+    categories:[{
+      name:"Electronics",
+      displayName: "cat 1",
+      description: "do stuff",
+      isActive: false
+    },
+    {
+      name:"Food",
+      displayName: "cat 2",
+      description: "do stuff",
+      isActive: false
+    },
+  {
+    name:"Furniture",
+    displayName: "cat 3",
+    description: "do stuff",
+    isActive: false
+  }],
+  activeCategory: 'cat 1',
+}
 
 export default function reducer( state = initialState, action){
   const {type, payload} = action;
 
-
   switch(type){
-      case 'INITIALIZE':
-          return{ categories: parseInt(payload, 10)}
-
-      case 'RENDER_NAME':
-          return {...state, renderName: state.name}
-          default:
-              return state;   
-
+    case 'INITIALIZE':
+        return{ categories: state.categories, activeCategory: state.activeCategory}
+        
+        case 'ACTIVE_CATEGORY':
+            return { categories: state.categories, activeCategory: payload }
+        
+        default:
+          return state;   
+          
   }
 }
-/* categories.map((item)=>{
-  render(
-      <div>
-      {categorName: item.name}
-      </div>
-  )
-})
-*/
 
-export const initialize = (number)=>{
-  number = parseInt(number, 10)
-  return{
-      type: 'INITIALIZE',
-      payload: number
- }
+  export const initialize = (category)=>{
+    return{
+        type: 'INITIALIZE',
+        payload: category
+  }
 }
 
-export const renderName = () => {
+export const activeCat = (payload) => {
   return {
-    type: 'RENDER_NAME'
+    type: 'ACTIVE_CATEGORY',
+    payload: payload
   }
 }
 
@@ -49,8 +55,3 @@ export const renderName = () => {
 // we need a button for food
 // when food is clicked take me to food products
 // import this file where we want to render
-// use dispatch and useSelector
-// use dispatch allows us to use some actions
-// dispatch and action;
-
-

@@ -1,9 +1,9 @@
 import { createStore, combineReducers } from 'redux';
 
-import categoriesCounter from './categories.js';
+import categoriesReducer from './categories.js';
 
 const reducers = combineReducers ({
-  cats: categoriesCounter
+  cats: categoriesReducer
 })
 
 export default createStore(reducers);
