@@ -5,7 +5,9 @@ export default function Footer(){
 
     return(
         <>
-        <footer>@2020/ Edgar/ Jonny</footer>
+        <BottomNavigation>
+            <footer>@2020 Edgar/ Jonny</footer>
+        </BottomNavigation>
         </>
     )
 }
