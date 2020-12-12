@@ -11,13 +11,13 @@ const initialState = {
       description: "do stuff",
       isActive: false
     },
-  {
-    name:"Furniture",
-    displayName: "cat 3",
-    description: "do stuff",
-    isActive: false
-  }],
-  activeCategory: 'cat 1',
+    {
+      name:"Furniture",
+      displayName: "cat 3",
+      description: "do stuff",
+      isActive: false
+    }],
+    activeCategory: 'cat 1',
 }
 
 export default function reducer( state = initialState, action){
@@ -27,11 +27,11 @@ export default function reducer( state = initialState, action){
     case 'INITIALIZE':
         return{ categories: state.categories, activeCategory: state.activeCategory}
         
-        case 'ACTIVE_CATEGORY':
-            return { categories: state.categories, activeCategory: payload }
-        
-        default:
-          return state;   
+    case 'ACTIVE_CATEGORY':
+        return { categories: state.categories, activeCategory: payload }
+    
+    default:
+      return state;   
           
   }
 }
