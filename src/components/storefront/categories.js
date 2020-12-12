@@ -18,28 +18,24 @@ export default function Categories() {
     const active = (payload) => {
         dispatch(activeCat(payload));
     } 
-    console.log(categoriesMap)
 
     function handleClick(item){
-        console.log('click',currentCategory)
         active(item.displayName)
     }
 
-
     return(
         <>
-        <div>
-            <p >{currentCategory}ACTIVE</p>
-            <ul>
-                {categoriesMap.map((item) => (
-                <li onClick={() => handleClick(item)}>
-                {item.name}
-                </li>
-            ))}
-            </ul> 
-        </div>
-        
-        <h2>HELLO</h2>
+        <h1>Our Categories</h1>
+            <div >
+                <p >Active Category: {currentCategory} </p>
+                <ul>
+                    {categoriesMap.map((item) => (
+                    <li key={Math.random()} onClick={() => handleClick(item)}>
+                    {item.name}
+                    </li>
+                ))}
+                </ul> 
+            </div>
         </>
     )
 }
