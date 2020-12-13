@@ -25,7 +25,6 @@ export default function Products() {
 
     return(
       <>
-        {/* <h1>PRODUCT:</h1> */}
         {/* <Typography variant="h5">PRODUCTS:</Typography> */}
         <div>
             {/* <p >{currentCategory} ACTIVE</p> */}
@@ -59,4 +58,3 @@ export default function Products() {
       </>
     )
 }
-
