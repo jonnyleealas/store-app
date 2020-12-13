@@ -35,7 +35,7 @@ export default function Categories() {
                         </li>
                     //if the quantity is 0 don't return/or return null.
                     )
-                    
+                  
                 }
                 )}
                 </ul> 

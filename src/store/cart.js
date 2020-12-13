@@ -6,10 +6,7 @@ export default function reducer ( state=initialState, action) {
   const { type, payload} = action;
 
   switch(type) {
-    // case "INITIALIZE":
-    //   return { count: parseInt(payload, 10) };
-    // case "INCREMENT":
-    //   return { ...state, count: state.count + 1 };
+    
     case 'INCREMENT':
       return {...state, cartItems: state.cartItems + 1}
 

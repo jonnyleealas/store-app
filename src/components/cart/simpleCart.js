@@ -1,7 +1,8 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { increment } from '../../store/cart.js';
+// import { increment, decrement } from '../../store/cart.js';
+import * as actions from '../../store/cart.js';
 
 
 export default function SimpleCart() {
@@ -14,14 +15,20 @@ export default function SimpleCart() {
 
 
   const addItem = () => {
-    dispatch(increment());
+    dispatch(actions.increment());
   }
 
+  const deleteItem = () => {
+    dispatch(actions.decrement());
+  }
 
   return(
     <>
     <div>({currentCart.cartItems})</div>
-      {/* <button onClick={addItem}>HELLO</button> */}
+    <h4>{currentCart.cartItems.length}</h4>
+      <button onClick={addItem}>HELLO</button>
+      <button onClick={deleteItem}>BYE</button>
+
     </>
   )
 }

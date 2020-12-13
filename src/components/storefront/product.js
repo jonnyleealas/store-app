@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { initialize } from '../../store/products.js'
 
 import Typography from '@material-ui/core/Typography';
+import * as actions from '../../store/cart.js'
 
 export default function Products() {
 
@@ -18,6 +19,10 @@ export default function Products() {
 
     productsMap = productsMap.filter(product => product.displayName === currentCategory);
 
+    const addItem = () => {
+      dispatch(actions.increment());
+    }
+
     return(
       <>
         {/* <h1>PRODUCT:</h1> */}
@@ -30,11 +35,9 @@ export default function Products() {
                 Name:{item.name}, 
                 Description: {item.description}
                 <span>
-                  <button >Add to cart</button>
+                  <button onClick={addItem}>Add to cart</button>
                 </span>
-                </li>
-                
-               
+                </li> 
             ))}
             </ul> 
         </div>
