@@ -8,6 +8,7 @@ export default function SimpleCart() {
 
   const dispatch = useDispatch();
 
+  //state comes from index.js
   const currentCart = useSelector((state) => state.cart);
  console.log(currentCart)
 
@@ -16,11 +17,11 @@ export default function SimpleCart() {
     dispatch(increment());
   }
 
-  console.log(onClick)
+
   return(
     <>
-    <div>{currentCart.cart}</div>
-    <button onClick={addItem}>HELLO</button>
+    <div>({currentCart.cartItems})</div>
+      {/* <button onClick={addItem}>HELLO</button> */}
     </>
   )
 }

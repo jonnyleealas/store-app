@@ -1,16 +1,20 @@
 const initialState = {
-  carItems: 0
+  cartItems: 0
 }
 
 export default function reducer ( state=initialState, action) {
   const { type, payload} = action;
 
   switch(type) {
+    // case "INITIALIZE":
+    //   return { count: parseInt(payload, 10) };
+    // case "INCREMENT":
+    //   return { ...state, count: state.count + 1 };
     case 'INCREMENT':
-      return { ...state, carItems: state.carItems + 1}
+      return {...state, cartItems: state.cartItems + 1}
 
       case 'DECREMENT':
-      return { ...state, carItems: state.carItems - 1}
+      return { ...state, cartItems: state.cartItems - 1}
 
       
       default:

@@ -20,8 +20,9 @@ function NavBar (){
           OUR STORE 
           </Typography>
           <div style={{marginLeft:"55%"}}>
-            <Button edge="end" color="inherit" ><ShoppingCartIcon />CART{<SimpleCart />}</Button>
+            <Button edge="end" color="inherit" ><ShoppingCartIcon />CART</Button>
           </div>
+          <SimpleCart />
         </Toolbar>
       </AppBar>
     </>
