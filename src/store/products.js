@@ -55,9 +55,7 @@ const initialState = {
     quantity: 3
   }] 
 }
-  // const DVD {
-
-  // }
+  
 
 export default function reducer( state = initialState, action){
 const {type, payload} = action;

@@ -29,6 +29,9 @@ export default function Products() {
                 <li key={Math.random()}>
                 Name:{item.name}, 
                 Description: {item.description}
+                <span>
+                  <button >Add to cart</button>
+                </span>
                 </li>
                 
                
