@@ -5,6 +5,7 @@ import NavBar from './components/header/header.js';
 import Categories from './components/storefront/categories.js'
 import Products from './components/storefront/product.js'
 import Footer from './components/footer/footer.js';
+import SimpleCart from './components/cart/simpleCart.js';
 
 
 function App() {
@@ -12,10 +13,11 @@ function App() {
     <>
     <Provider store={ store }>
       <NavBar />
+      
       <Categories />
       <Products />
     </Provider>
-    <Footer />
+    {/* <Footer /> */}
     </>
   );
 }

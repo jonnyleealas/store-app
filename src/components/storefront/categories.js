@@ -13,7 +13,7 @@ export default function Categories() {
     const initCats = () => {
         dispatch(initialize());
     }
-    initCats();
+    // initCats();
 
     const active = (payload) => {
         dispatch(activeCat(payload));
@@ -27,14 +27,18 @@ export default function Categories() {
         <>
         <h1>Our Categories</h1>
             <div >
-                <p >Active Category: {currentCategory} </p>
-                <ul>
-                    {categoriesMap.map((item) => (
-                    <li key={Math.random()} onClick={() => handleClick(item)}>
-                    {item.name}
-                    </li>
-                ))}
+                <ul>{initCats()}
+                    {categoriesMap.map((item) => {
+                        return (
+                            <li key={Math.random()} onClick={() => handleClick(item)}>
+                        {item.name}
+                        </li>
+                    //if the quantity is 0 don't return/or return null.
+                    )
+                }
+                )}
                 </ul> 
+                <h2 >{currentCategory} </h2>
             </div>
         </>
     )

@@ -1,21 +1,61 @@
 const initialState = {
   products:[{
-    name:"Electronics",
-    displayName: "cat 1",
-    description: "do stuff",
+    name:"TV",
+    displayName: "ELECTRONICS",
+    description: "do",
+    quantity: 5
   },
   {
-    name:"Food",
-    displayName: "cat 2",
-    description: "do stuff", 
+    name:"DVD",
+    displayName: "ELECTRONICS",
+    description: "fruit",
+    quantity: 1
+    },
+  {
+    name:"Computer",
+    displayName: "ELECTRONICS",
+    description: "do stuff",
+    quantity: 3
+  },
+
+  {
+    name:"Apple",
+    displayName: "FOOD",
+    description: "do",
+    quantity: 5
   },
   {
-    name:"Furniture",
-    displayName: "cat 3",
+    name:"Orange",
+    displayName: "FOOD",
+    description: "fruit",
+    quantity: 1
+    },
+  {
+    name:"Banana",
+    displayName: "FOOD",
     description: "do stuff",
-  }],
-  activeCategory: 'cat 1',
+    quantity: 3
+  },
+  {
+    name:"Table",
+    displayName: "FURNITURE",
+    description: "do",
+    quantity: 5
+  },
+  {
+    name:"Chair",
+    displayName: "FURNITURE",
+    description: "fruit",
+    quantity: 1
+    },
+  {
+    name:"Couch",
+    displayName: "FURNITURE",
+    description: "do stuff",
+    quantity: 3
+  }] 
 }
+  
 
 export default function reducer( state = initialState, action){
 const {type, payload} = action;
@@ -43,3 +83,7 @@ const {type, payload} = action;
 // we need a button for food
 // when food is clicked take me to food products
 // import this file where we want to render
+
+
+
+//if products.quantity > 0, return.

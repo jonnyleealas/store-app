@@ -5,6 +5,7 @@ import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
+import SimpleCart from '../cart/simpleCart.js'
 
 
 function NavBar (){
@@ -19,8 +20,9 @@ function NavBar (){
           OUR STORE 
           </Typography>
           <div style={{marginLeft:"55%"}}>
-            <Button edge="end" color="inherit" ><ShoppingCartIcon />CART(0)</Button>
+            <Button edge="end" color="inherit" ><ShoppingCartIcon />CART</Button>
           </div>
+          <SimpleCart />
         </Toolbar>
       </AppBar>
     </>
