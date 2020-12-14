@@ -1,23 +1,23 @@
 const initialState = {
     categories:[{
       name:"Electronics",
-      displayName: "cat 1",
+      displayName: "ELECTRONICS",
       description: "do stuff",
       isActive: false
     },
     {
       name:"Food",
-      displayName: "cat 2",
+      displayName: "FOOD",
       description: "do stuff",
       isActive: false
     },
     {
       name:"Furniture",
-      displayName: "cat 3",
+      displayName: "FURNITURE",
       description: "do stuff",
       isActive: false
     }],
-    activeCategory: 'cat 1',
+    activeCategory: '',
 }
 
 export default function reducer( state = initialState, action){
