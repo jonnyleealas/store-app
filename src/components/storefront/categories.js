@@ -20,7 +20,9 @@ export default function Categories() {
     } 
 
     function handleClick(item){
+        
         active(item.displayName)
+        console.log('fudkadfs', item)
     }
 
     return(

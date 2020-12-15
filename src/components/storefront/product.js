@@ -19,8 +19,8 @@ export default function Products() {
 
     productsMap = productsMap.filter(product => product.displayName === currentCategory);
 
-    const addItem = () => {
-      dispatch(actions.increment());
+    const addItem = (item) => {
+      dispatch(actions.increment(item));
     }
 
     return(
@@ -34,7 +34,7 @@ export default function Products() {
                 Name:{item.name}, 
                 Description: {item.description}
                 <span>
-                  <button onClick={addItem}>Add to cart</button>
+                  <button onClick={()=>addItem(item)}>Add to cart</button>
                 </span>
                 </li> 
             ))}
