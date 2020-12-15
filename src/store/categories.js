@@ -4,19 +4,21 @@ const initialState = {
       displayName: "ELECTRONICS",
       description: "do stuff",
       isActive: false,
-      quantity: 0
+      quantity: 10
     },
     {
       name:"Food",
       displayName: "FOOD",
       description: "do stuff",
-      isActive: false
+      isActive: false,
+      quantity: 9
     },
     {
       name:"Furniture",
       displayName: "FURNITURE",
       description: "do stuff",
-      isActive: false
+      isActive: false,
+      quantity: 10
     }],
     activeCategory: '',
 }
@@ -31,8 +33,7 @@ export default function reducer( state = initialState, action){
     case 'ACTIVE_CATEGORY':
         return { categories: state.categories, activeCategory: payload }
     case 'INCREMENT':
-      console.log(payload,'increment payload')
-      break
+      
     
     default:
       return state;   
