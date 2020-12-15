@@ -66,6 +66,12 @@ const {type, payload} = action;
 
     case 'DECREMENT':
       console.log('PAYLOAD ', payload)
+
+      /**
+       * 1 state = initial = [{}]
+       * 2 products = {}{}{}
+       * 3. map.item = {}
+       */
       let newItemsArray = state.products.map((item)=>{
         // payload is onClick and item.name is our state.products.object
         if(payload.name === item.name){

@@ -13,11 +13,7 @@ export default function Products() {
     let productsMap = useSelector((state) => state.products.products);
     const currentCategory = useSelector( state => state.cats.activeCategory);
     
-    // useEffect(()=>{
-    //     dispatch(initialize());
-    // },[])
-    // will be used for api calls
-   
+  
 
     productsMap = productsMap.filter(product => product.displayName === currentCategory);
 
@@ -28,8 +24,8 @@ export default function Products() {
       // dispatch product decrement
     }
 
-    // useEffect((item) => {
-    // },[addItem]);
+    useEffect((item) => {
+    },[addItem]);
 
     
     return(
