@@ -1,9 +1,10 @@
-import React from "react";
+import React,{useEffect} from "react";
 import { useDispatch, useSelector } from 'react-redux';
-import { initialize } from '../../store/products.js'
+import { initialize, decrementQuantity } from '../../store/products.js'
 
 import Typography from '@material-ui/core/Typography';
 import * as actions from '../../store/cart.js'
+// import * prodAction from '../products
 
 export default function Products() {
 
@@ -20,9 +21,14 @@ export default function Products() {
     productsMap = productsMap.filter(product => product.displayName === currentCategory);
 
     const addItem = (item) => {
-      dispatch(actions.increment(item));
+      dispatch(actions.increment(item));// this increment cart.js
+      console.log('HEREEEEE', actions.increment(item))
+      
     }
 
+    useEffect((item) => {
+     dispatch(actions.decrement(item))
+    },[addItem]);
     return(
       <>
         {/* <Typography variant="h5">PRODUCTS:</Typography> */}
@@ -33,6 +39,7 @@ export default function Products() {
                 <li key={Math.random()}>
                 Name:{item.name}, 
                 Description: {item.description}
+                Quantity: {item.quantity}
                 <span>
                   <button onClick={()=>addItem(item)}>Add to cart</button>
                 </span>
