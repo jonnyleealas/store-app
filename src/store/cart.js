@@ -11,7 +11,7 @@ export default function reducer ( state=initialState, action) {
       console.log(payload)
       return {...state, cartItems: state.cartItems + 1}
 
-      case 'DECREMENT':
+      case 'DECREMENT_CART':
       return { ...state, cartItems: state.cartItems - 1}
 
       
@@ -29,6 +29,6 @@ export const increment = (payload) => {
 
 export const decrement = () => {
   return{
-    type: 'DECREMENT'
+    type: 'DECREMENT_CART'
   }
 }
