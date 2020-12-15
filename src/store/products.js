@@ -65,9 +65,18 @@ const {type, payload} = action;
         return{ products: state.products }
 
     case 'DECREMENT':
-        return {...state, products: state.products}
-    //everytime this is call is take one from quantity ( -1),
-    //then write 
+      console.log('PAYLOAD ', payload)
+      let newItemsArray = state.products.map((item)=>{
+        // payload is onClick and item.name is our state.products.object
+        if(payload.name === item.name){
+          item.quantity--
+          return item
+        } else{
+          return item
+        }
+      })
+      console.log('NEW STATE LOG',newItemsArray)
+      return {...state, products: newItemsArray}
         
         default:
           return state;   

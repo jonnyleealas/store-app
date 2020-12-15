@@ -13,22 +13,25 @@ export default function Products() {
     let productsMap = useSelector((state) => state.products.products);
     const currentCategory = useSelector( state => state.cats.activeCategory);
     
-    const initProds = () => {
-        dispatch(initialize());
-    }
-    initProds();
+    // useEffect(()=>{
+    //     dispatch(initialize());
+    // },[])
+    // will be used for api calls
+   
 
     productsMap = productsMap.filter(product => product.displayName === currentCategory);
 
     const addItem = (item) => {
       dispatch(actions.increment(item));// this increment cart.js
-      console.log('HEREEEEE', actions.increment(item))
-      
+      console.log('ADD ITEM DISPATCHER', actions.increment(item))
+      dispatch(decrementQuantity(item))
+      // dispatch product decrement
     }
 
-    useEffect((item) => {
-     dispatch(actions.decrement(item))
-    },[addItem]);
+    // useEffect((item) => {
+    // },[addItem]);
+
+    
     return(
       <>
         {/* <Typography variant="h5">PRODUCTS:</Typography> */}
