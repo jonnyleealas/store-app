@@ -63,6 +63,11 @@ const {type, payload} = action;
   switch(type){
     case 'INITIALIZE':
         return{ products: state.products }
+
+    case 'DECREMENT':
+        return {...state, products: state.products}
+    //everytime this is call is take one from quantity ( -1),
+    //then write 
         
         default:
           return state;   
@@ -76,6 +81,14 @@ const {type, payload} = action;
         payload: product
   }
 }
+
+  export const decrementQuantity = (product) => {
+    return{
+      type: 'DECREMENT',
+      payload: product
+    }
+  }
+
 
 
 // anchor or click button for electronics
