@@ -19,10 +19,8 @@ export default function Categories() {
         dispatch(activeCat(payload));
     } 
 
-    function handleClick(item){
-        
+    function handleClick(item){ 
         active(item.displayName)
-        // console.log('fudkadfs', item)
     }
 
     return(
@@ -33,12 +31,12 @@ export default function Categories() {
                     {categoriesMap.map((item) => {
                         return (
                             <li key={Math.random()} onClick={() => handleClick(item)}>
-                        {item.name}
-                        </li>
+                            {item.name}
+                            </li>
                     //if the quantity is 0 don't return/or return null.
                     )
-                }
-                )}
+                    }
+                    )}
                 </ul> 
                 <h2 >{currentCategory} </h2>
             </div>

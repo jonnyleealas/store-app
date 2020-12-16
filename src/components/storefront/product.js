@@ -1,4 +1,4 @@
-import React from "react";
+import React,{useEffect} from "react";
 import { useDispatch, useSelector } from 'react-redux';
 import { initialize, decrementQuantity } from '../../store/products.js'
 
@@ -13,23 +13,21 @@ export default function Products() {
     let productsMap = useSelector((state) => state.products.products);
     const currentCategory = useSelector( state => state.cats.activeCategory);
     
-    const initProds = () => {
-        dispatch(initialize());
-    }
-    initProds();
+  
 
     productsMap = productsMap.filter(product => product.displayName === currentCategory);
 
     const addItem = (item) => {
       dispatch(actions.increment(item));// this increment cart.js
-      console.log('HEREEEEE', actions.increment(item))
+      // console.log('ADD ITEM DISPATCHER', actions.increment(item))
+      dispatch(decrementQuantity(item))
+      // dispatch product decrement
     }
     
-    // const minusOne = (item) => {
-    //   dispatch(decrementQuantity(item));
-    //     console.log('DISPATCH DECREMENT', decrementQuantity(item)); 
-    // }
+    // useEffect((item) => {
+    // },[addItem]);
 
+    
     return(
       <>
         {/* <Typography variant="h5">PRODUCTS:</Typography> */}

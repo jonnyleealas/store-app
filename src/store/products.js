@@ -53,21 +53,37 @@ const initialState = {
     displayName: "FURNITURE",
     description: "do stuff",
     quantity: 3
-  }] 
+  }],
+  productCart: "" 
 }
   
-
 export default function reducer( state = initialState, action){
 const {type, payload} = action;
 
   switch(type){
     case 'INITIALIZE':
-        return{ products: state.products }
+        return{ products: state.products, productCart: state.productCart }
 
     case 'DECREMENT':
-        return {...state, products: state.products}
-    //everytime this is call is take one from quantity ( -1),
-    //then write 
+      /**
+       * 1 state = initial = [{}]
+       * 2 products = {}{}{}
+       * 3. map.item = {}
+       */
+      let newItemsArray = state.products.map((item)=>{
+        // payload is onClick and item.name is our state.products.object
+        if(payload.name === item.name){
+          item.quantity--
+          return item
+        } else{
+          return item
+        }
+      })
+      console.log('NEW STATE LOG',newItemsArray)
+      return {...state, products: newItemsArray}
+
+      case 'ADD_TO_CART':
+        return { products: state.products, productCart: payload}
         
         default:
           return state;   
@@ -75,19 +91,26 @@ const {type, payload} = action;
   }
 }
 
-  export const initialize = (product)=>{
-    return{
-        type: 'INITIALIZE',
-        payload: product
+export const initialize = (product)=>{
+  return{
+      type: 'INITIALIZE',
+      payload: product
   }
 }
 
-  export const decrementQuantity = (product) => {
-    return{
+export const decrementQuantity = (product) => {
+  return{
       type: 'DECREMENT',
       payload: product
-    }
   }
+}
+
+export const addToCart = (payload) => {
+  return{
+      type: 'ADD_TO_CART',
+      payload: payload
+  }
+}
 
 
 
@@ -96,7 +119,5 @@ const {type, payload} = action;
 // we need a button for food
 // when food is clicked take me to food products
 // import this file where we want to render
-
-
 
 //if products.quantity > 0, return.
