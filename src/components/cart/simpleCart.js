@@ -36,6 +36,7 @@ export default function SimpleCart() {
       Name:{item.name}, 
       Description: {item.description},
       Qty of item: {item.quantity}
+      <button onClick={() => deleteItem(item)}>Remove item</button>
       </li>
     ))}
     </ul>
