@@ -20,6 +20,7 @@ export default function SimpleCart() {
   }
 
   const deleteItem = (item) => {
+    console.log('DELETE BITCH',item)
     dispatch(actions.decrement(item));
     // dipatch increment from products.js
     dispatch(incrementProduct(item))
@@ -34,8 +35,8 @@ export default function SimpleCart() {
     {currentCart.cartItems.map((item) => (
       <li key={Math.random()}>
       Name:{item.name}, 
-      Description: {item.description},
-      Qty of item: {item.quantity}
+      {/* Description: {item.description},
+      Qty of item: {item.quantity} */}
       <button onClick={() => deleteItem(item)}>Remove item</button>
       </li>
     ))}
