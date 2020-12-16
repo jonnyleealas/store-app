@@ -30,6 +30,10 @@ export default function reducer( state = initialState, action){
     case 'ACTIVE_CATEGORY':
         return { categories: state.categories, activeCategory: payload }
     
+    // case 'INCREMENT':
+    //     return {}
+      
+    
     default:
       return state;   
           

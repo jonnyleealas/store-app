@@ -8,6 +8,7 @@ export default function reducer ( state=initialState, action) {
   switch(type) {
     
     case 'INCREMENT':
+      console.log(payload)
       return {...state, cartItems: state.cartItems + 1}
 
       case 'DECREMENT':
@@ -19,9 +20,10 @@ export default function reducer ( state=initialState, action) {
   }
 }
 
-export const increment = () => {
+export const increment = (payload) => {
   return{
-    type: 'INCREMENT'
+    type: 'INCREMENT',
+    payload: payload
   }
 }
 
