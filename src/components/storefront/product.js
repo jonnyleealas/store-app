@@ -1,9 +1,8 @@
 import React,{useEffect} from "react";
 import { useDispatch, useSelector } from 'react-redux';
-import { initialize, decrementQuantity } from '../../store/products.js'
-
-import Typography from '@material-ui/core/Typography';
+import { initialize, decrementQuantity, incrementProduct } from '../../store/products.js'
 import * as actions from '../../store/cart.js'
+import Typography from '@material-ui/core/Typography';
 // import * prodAction from '../products
 
 export default function Products() {
@@ -19,13 +18,14 @@ export default function Products() {
 
     const addItem = (item) => {
       dispatch(actions.increment(item));// this increment cart.js
-      console.log('ADD ITEM DISPATCHER', actions.increment(item))
+
+      // console.log('ADD ITEM DISPATCHER', actions.increment(item))
       dispatch(decrementQuantity(item))
       // dispatch product decrement
     }
 
-    useEffect((item) => {
-    },[addItem]);
+    // useEffect((item) => {
+    // },[addItem]);
 
     
     return(

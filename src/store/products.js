@@ -65,13 +65,6 @@ const {type, payload} = action;
         return{ products: state.products }
 
     case 'DECREMENT':
-      console.log('PAYLOAD ', payload)
-
-      /**
-       * 1 state = initial = [{}]
-       * 2 products = {}{}{}
-       * 3. map.item = {}
-       */
       let newItemsArray = state.products.map((item)=>{
         // payload is onClick and item.name is our state.products.object
         if(payload.name === item.name){
@@ -81,13 +74,27 @@ const {type, payload} = action;
           return item
         }
       })
-      console.log('NEW STATE LOG',newItemsArray)
+      // console.log('NEW STATE LOG',newItemsArray)
       return {...state, products: newItemsArray}
-        
+
+      case 'INCREMENT_PRODUCT':
+        let newAddProductsArray = state.products.map((item)=>{
+          // payload is onClick and item.name is our state.products.object
+          if(payload.name === item.name){
+            item.quantity++
+            return item
+          } else{
+            return item
+          }
+        })
+        console.log('NEW ADD PRODUCT LIST', newAddProductsArray)
+        return {...state, products: newAddProductsArray}
+
         default:
           return state;   
           
   }
+
 }
 
   export const initialize = (product)=>{
@@ -104,6 +111,13 @@ const {type, payload} = action;
     }
   }
 
+  export const incrementProduct=(product)=>{
+    return{
+      type: 'INCREMENT_PRODUCT',
+      payload: product
+    }
+  }
+
 
 
 // anchor or click button for electronics
@@ -115,3 +129,23 @@ const {type, payload} = action;
 
 
 //if products.quantity > 0, return.
+
+
+
+
+/**
+ * when I add to car populate added item in cart list
+ * add 1 to car
+ * add a button to item that deletes item from cart
+ * delete 1 from cart
+ * add 1 to product.quantity
+ * 
+ * If i add product to cart
+ * add button adds 1 to cart
+ * deletes 1 from product.quantity
+ * 
+ * If I delete product from cart
+ * -- from cart
+ * ++ produce.quantity
+ * 
+ */
