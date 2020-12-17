@@ -46,30 +46,6 @@ export default function reducer(state = initialState, action) {
     // return {...state, cartItems: state.cartItems +1}
 
     case 'DECREMENT_CART':
-      /**
-       * High level
-       * check if item is in cart
-       * return state of cart --
-       * return new state of stock ++ * 
-       */
-
-
-      // const newCartItems = state.cartItems.map((item) => item.name == newStockPayload.name && item.quantity > 0 ? {name:item.name, quantity:item.quantity--} : item);
-      // const newStockPayload = { ...payload };
-      // const newCartItems = state.cartItems.map(item => {
-      //   let newItem = item;
-      //   if (item.name == newStockPayload.name && item.quantity > 0) {
-      //     newItem = { name: item.name, quantity: item.quantity-- }
-      //   }
-      //   console.log({item, newItem} )
-      //   return newItem;
-      // })
-      // const newCartTotals = newCartItems.reduce(function (a, b) {
-       
-      //   return a + b.quantity;
-      // }, 0);
-
-
 
       // return { ...state, cartItems: newCartItems, cartTotalQty: newCartTotals }
       const newCartPayload = { ...payload };
@@ -100,11 +76,8 @@ export default function reducer(state = initialState, action) {
       // console.log("new total should be a number", newTotal)
 
       return { ...state, cartItems: cartQuantity, cartTotalQty: newCartTotal }
-
-
-
-    default:
-      return state;
+        default:
+          return state;
   }
 }
 
@@ -116,7 +89,7 @@ export const increment = (payload) => {
 }
 
 export const removeFromCart = (payload) => {
-  console.log('EXPORT CONST DECREMENET:', payload)
+  console.log('EXPORT CONST DECREMENT:', payload)
   return {
     type: 'DECREMENT_CART',
     payload: payload

@@ -1,5 +1,6 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import {If, Else, Then} from 'react-if';
 
 // import { increment, decrement } from '../../store/cart.js';
 import * as actions from '../../store/cart.js';
@@ -26,21 +27,41 @@ export default function SimpleCart() {
     dispatch(incrementProduct(item))
 
   }
-
+  // const Bar = ({ name, age, drinkingAge }) => (
+  //   <div>
+  //     <Header />
+  //     <If condition={age >= drinkingAge}>
+  //       <Then>
+  //         <span className="ok">Have a beer, {name}!</span>
+  //       </Then>
+  //       <Else>
+  //         <span className="not-ok">Sorry, {name}, you are not old enough.</span>
+  //       </Else>
+  //     </If>
+  //     <Footer />
+  //   </div>
+  // )
 
   return(
     <>
     <div>({currentCart.cartTotalQty})</div>
     <ul>
     {currentCart.cartItems.map((item) => (
-      <li key={Math.random()}>
-      Name:{item.name}, 
-      {/* Description: {item.description},
-      Qty of item: {item.quantity} */}
-      <button onClick={() => deleteItem(item)}>Remove item</button>
-      </li>
-    ))}
-    </ul>
+      <div key={Math.random()}>
+       <If condition={item.quantity === 0}>
+         <Then><></></Then>
+           <Else>
+              Shopping:{item.name}, 
+              {/* Description: {item.description},
+              Qty of item: {item.quantity} */}
+              <button onClick={() => deleteItem(item)}>Remove item</button>
+    
+           </Else>
+        </If>
+        </div>
+          ))}
+        </ul>
+
     {/* <h4>{currentCart.cartItems.length}</h4> */}
       {/* <button onClick={addItem}>HELLO</button>
       <button onClick={deleteItem}>BYE</button>

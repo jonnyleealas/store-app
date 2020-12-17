@@ -19,7 +19,7 @@ export default function Products() {
     const addItem = (item) => {
       dispatch(actions.increment(item));// this increment cart.js
 
-      // console.log('ADD ITEM DISPATCHER', actions.increment(item))
+    
       dispatch(decrementQuantity(item))
       // dispatch product decrement
     }
