@@ -21,10 +21,10 @@ export default function SimpleCart() {
 
   const deleteItem = (item) => {
     console.log('DELETE BITCH',item)
-    dispatch(actions.decrement(item));
-    // dipatch increment from products.js
+    dispatch(actions.removeFromCart(item));
+   
     dispatch(incrementProduct(item))
-// console.log('BITCH PLEASE',dispatch(incrementProduct(item)))
+
   }
 
 

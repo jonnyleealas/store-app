@@ -24,8 +24,7 @@ export default function Products() {
       // dispatch product decrement
     }
 
-    // useEffect((item) => {
-    // },[addItem]);
+  
 
     
     return(
