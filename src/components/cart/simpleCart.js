@@ -51,9 +51,9 @@ export default function SimpleCart() {
        <If condition={item.quantity === 0}>
          <Then><></></Then>
            <Else>
-              Shopping:{item.name}, 
-              {/* Description: {item.description},
-              Qty of item: {item.quantity} */}
+              {item.name}, 
+              {/* Description: {item.description}, */}
+              Qty: {item.quantity}
               <button onClick={() => deleteItem(item)}>Remove item</button>
     
            </Else>

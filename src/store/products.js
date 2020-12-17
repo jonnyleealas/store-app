@@ -3,56 +3,65 @@ const initialState = {
     name: "TV",
     displayName: "ELECTRONICS",
     description: "do",
-    quantity: 5
+    quantity: 5,
+    sold_out: 'Sold Out'
   },
   {
     name: "DVD",
     displayName: "ELECTRONICS",
     description: "fruit",
-    quantity: 1
+    quantity: 1,
+    sold_out: 'Sold Out'
   },
   {
     name: "Computer",
     displayName: "ELECTRONICS",
     description: "do stuff",
-    quantity: 3
+    quantity: 3,
+    sold_out: 'Sold Out'
   },
 
   {
     name: "Apple",
     displayName: "FOOD",
     description: "do",
-    quantity: 5
+    quantity: 5,
+    sold_out: 'Sold Out'
   },
   {
     name: "Orange",
     displayName: "FOOD",
     description: "fruit",
-    quantity: 1
+    quantity: 1,
+    sold_out: 'Sold Out'
   },
   {
     name: "Banana",
     displayName: "FOOD",
     description: "do stuff",
-    quantity: 3
+    quantity: 3,
+    sold_out: 'Sold Out'
   },
   {
     name: "Table",
     displayName: "FURNITURE",
     description: "do",
-    quantity: 5
+    quantity: 5,
+    sold_out: 'Sold Out'
   },
   {
     name: "Chair",
     displayName: "FURNITURE",
     description: "fruit",
-    quantity: 1
+    quantity: 1,
+    sold_out: 'Sold Out'
   },
   {
     name: "Couch",
     displayName: "FURNITURE",
     description: "do stuff",
-    quantity: 3
+    quantity: 3,
+    sold_out: 'Sold Out'
   }]
 }
 
