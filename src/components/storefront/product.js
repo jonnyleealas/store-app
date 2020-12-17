@@ -2,6 +2,8 @@ import React,{useEffect} from "react";
 import { useDispatch, useSelector } from 'react-redux';
 import {If, Else, Then} from 'react-if';
 
+import SimpleCart from '../cart/simpleCart.js';
+
 
 import { initialize, decrementQuantity, incrementProduct } from '../../store/products.js'
 import * as actions from '../../store/cart.js'
@@ -57,6 +59,7 @@ export default function Products() {
               </li> 
             ))}
             </ul> 
+            <SimpleCart />
         </div>
         <>
        <ul>

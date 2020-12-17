@@ -1,6 +1,6 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import {If, Else, Then} from 'react-if';
+import { If, Else, Then } from 'react-if';
 
 // import { increment, decrement } from '../../store/cart.js';
 import * as actions from '../../store/cart.js';
@@ -13,7 +13,7 @@ export default function SimpleCart() {
 
   //state comes from index.js
   const currentCart = useSelector((state) => state.cart);
- console.log("currentCart :::", currentCart)
+  console.log("currentCart :::", currentCart)
 
 
   const addItem = (item) => {
@@ -21,48 +21,38 @@ export default function SimpleCart() {
   }
 
   const deleteItem = (item) => {
-    console.log('DELETE BITCH',item)
+    console.log('DELETE BITCH', item)
     dispatch(actions.removeFromCart(item));
-   
+
     dispatch(incrementProduct(item))
 
   }
-  // const Bar = ({ name, age, drinkingAge }) => (
-  //   <div>
-  //     <Header />
-  //     <If condition={age >= drinkingAge}>
-  //       <Then>
-  //         <span className="ok">Have a beer, {name}!</span>
-  //       </Then>
-  //       <Else>
-  //         <span className="not-ok">Sorry, {name}, you are not old enough.</span>
-  //       </Else>
-  //     </If>
-  //     <Footer />
-  //   </div>
-  // )
 
-  return(
+  return (
     <>
-    <div>({currentCart.cartTotalQty})</div>
-    <ul>
-    {currentCart.cartItems.map((item) => (
+
+      <ul>
+      <If condition={currentCart.cartTotalQty > 0}>
+          <Then><h2>In Cart</h2></Then>
+          <Else><></></Else>
+      </If>
+     
+        {currentCart.cartItems.map((item) => (
       <div key={Math.random()}>
        <If condition={item.quantity === 0}>
          <Then><></></Then>
            <Else>
               {item.name}, 
-              {/* Description: {item.description}, */}
               Qty: {item.quantity}
               <button onClick={() => deleteItem(item)}>Remove item</button>
     
            </Else>
         </If>
         </div>
-          ))}
-        </ul>
+        ))}
+      </ul>
 
-    {/* <h4>{currentCart.cartItems.length}</h4> */}
+      {/* <h4>{currentCart.cartItems.length}</h4> */}
       {/* <button onClick={addItem}>HELLO</button>
       <button onClick={deleteItem}>BYE</button>
 
