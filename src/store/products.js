@@ -4,21 +4,21 @@ const initialState = {
     displayName: "ELECTRONICS",
     description: "do",
     quantity: 5,
-    sold_out: 'Sold Out'
+    sold_out: 'Sold Out😣'
   },
   {
     name: "DVD",
     displayName: "ELECTRONICS",
     description: "fruit",
     quantity: 1,
-    sold_out: 'Sold Out'
+    sold_out: 'Sold Out😣'
   },
   {
     name: "Computer",
     displayName: "ELECTRONICS",
     description: "do stuff",
     quantity: 3,
-    sold_out: 'Sold Out'
+    sold_out: 'Sold Out😣'
   },
 
   {
@@ -26,42 +26,42 @@ const initialState = {
     displayName: "FOOD",
     description: "do",
     quantity: 5,
-    sold_out: 'Sold Out'
+    sold_out: 'Sold Out😣'
   },
   {
     name: "Orange",
     displayName: "FOOD",
     description: "fruit",
     quantity: 1,
-    sold_out: 'Sold Out'
+    sold_out: 'Sold Out😣'
   },
   {
     name: "Banana",
     displayName: "FOOD",
     description: "do stuff",
     quantity: 3,
-    sold_out: 'Sold Out'
+    sold_out: 'Sold Out😣'
   },
   {
     name: "Table",
     displayName: "FURNITURE",
     description: "do",
     quantity: 5,
-    sold_out: 'Sold Out'
+    sold_out: 'Sold Out😣'
   },
   {
     name: "Chair",
     displayName: "FURNITURE",
     description: "fruit",
     quantity: 1,
-    sold_out: 'Sold Out'
+    sold_out: 'Sold Out😣'
   },
   {
     name: "Couch",
     displayName: "FURNITURE",
     description: "do stuff",
     quantity: 3,
-    sold_out: 'Sold Out'
+    sold_out: 'Sold Out😣'
   }]
 }
 

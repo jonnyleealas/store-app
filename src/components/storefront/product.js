@@ -6,6 +6,8 @@ import { initialize, decrementQuantity } from '../../store/products.js'
 import {If, Else, Then} from 'react-if';
 >>>>>>> jonny2
 
+import SimpleCart from '../cart/simpleCart.js';
+
 
 import { initialize, decrementQuantity, incrementProduct } from '../../store/products.js'
 import * as actions from '../../store/cart.js'
@@ -83,6 +85,7 @@ export default function Products() {
 >>>>>>> jonny2
             ))}
             </ul> 
+            <SimpleCart />
         </div>
         <>
        <ul>
