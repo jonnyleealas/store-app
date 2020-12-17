@@ -1,7 +1,7 @@
 # Store App Using React Redux
 ## Author: Edgar Romero, Jonathon Lee
 ### Links and Resources
-
+--->> testing a git commit
 - Class-36 [Pull Request](https://github.com/jonnyleealas/store-app/pull/7)
 <!-- - Class-37 [Pull Request] -->
 
