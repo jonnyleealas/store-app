@@ -1,13 +1,20 @@
 import React,{useEffect} from "react";
 import { useDispatch, useSelector } from 'react-redux';
+<<<<<<< HEAD
+import { initialize, decrementQuantity } from '../../store/products.js'
+=======
 import {If, Else, Then} from 'react-if';
+>>>>>>> jonny2
 
 import SimpleCart from '../cart/simpleCart.js';
 
 
 import { initialize, decrementQuantity, incrementProduct } from '../../store/products.js'
 import * as actions from '../../store/cart.js'
+<<<<<<< HEAD
+=======
 import Typography from '@material-ui/core/Typography';
+>>>>>>> jonny2
 // import * prodAction from '../products
 
 export default function Products() {
@@ -23,11 +30,20 @@ export default function Products() {
 
     const addItem = (item) => {
       dispatch(actions.increment(item));// this increment cart.js
+<<<<<<< HEAD
+      console.log('HEREEEEE', actions.increment(item))
+=======
 
     
       dispatch(decrementQuantity(item))
       // dispatch product decrement
+>>>>>>> jonny2
     }
+    
+    // const minusOne = (item) => {
+    //   dispatch(decrementQuantity(item));
+    //     console.log('DISPATCH DECREMENT', decrementQuantity(item)); 
+    // }
 
   
 
@@ -40,6 +56,15 @@ export default function Products() {
             <ul>
                 {productsMap.map((item) => (
                 <li key={Math.random()}>
+<<<<<<< HEAD
+                Name:{item.name}, 
+                Description: {item.description}
+                Quantity: {item.quantity}
+                <span>
+                  <button onClick={()=> {addItem(item); decrementQuantity(item)}}>Add to cart</button>
+                </span>
+                </li> 
+=======
                 <If condition={item.quantity === 0}>
                   <Then>
                     Name:{item.name}, 
@@ -57,6 +82,7 @@ export default function Products() {
                     </Else>
                 </If>
               </li> 
+>>>>>>> jonny2
             ))}
             </ul> 
             <SimpleCart />
