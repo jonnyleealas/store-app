@@ -8,8 +8,8 @@ export default function Categories() {
 
     const dispatch = useDispatch();
 
-    const items = useSelector((state) => state.cats);
-    console.log(items)
+    const categories = useSelector((state) => state.cats);
+    console.log(categories);
 
     const currentCategory = useSelector( state => state.cats.activeCategory);
     
@@ -21,11 +21,11 @@ export default function Categories() {
     //     dispatch(actions.activeCat(payload));
     // } 
 
-    // function handleClick(item){
-        
-    //     active(item.displayName)
-    //     // console.log('fudkadfs', item)
-    // }
+    function handleClick(item){
+        dispatch(actions.getProducts())
+        // active(item.category)
+        console.log('fudkadfs', item)
+    }
 
     useEffect ( () => {
         dispatch(actions.get())
@@ -35,11 +35,11 @@ export default function Categories() {
 
     return(
         <>
-            <h2>WHATS UP</h2>
+            <h2>OUR CATEGORIES: </h2>
             <ul >
-                {items.map( (item) => 
-                    <li key={item._id}> 
-                        HELLO: {item.text}
+                {categories.map( (item) => 
+                    <li key={item._id} onClick={handleClick}> 
+                        {item.name}
                     </li>              
                 )}      
             </ul>
