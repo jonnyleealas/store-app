@@ -8,10 +8,10 @@ export default function Categories() {
 
     const dispatch = useDispatch();
 
-    const categories = useSelector((state) => state.cats);
+    const categories = useSelector(state => state.cats.categories);
     console.log(categories);
 
-    const currentCategory = useSelector( state => state.cats.activeCategory);
+    // const currentCategory = useSelector( state => state.cats.activeCategory);
     
     // const initCats = (item) => {
     //     dispatch(actions.get(item));
@@ -22,7 +22,7 @@ export default function Categories() {
     // } 
 
     function handleClick(item){
-        dispatch(actions.getProducts())
+        // dispatch(actions.getProducts(item))
         // active(item.category)
         console.log('fudkadfs', item)
     }
