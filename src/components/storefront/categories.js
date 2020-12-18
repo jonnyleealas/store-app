@@ -1,47 +1,48 @@
-import React from "react";
+import React, { useEffect } from "react";
+import axios from 'axios';
 import { useDispatch, useSelector } from 'react-redux';
-import { initialize, activeCat } from '../../store/categories.js'
+import * as actions from '../../store/categories.js'
 
 
 export default function Categories() {
 
     const dispatch = useDispatch();
 
-    let categoriesMap = useSelector((state) => state.cats.categories);
+    const items = useSelector((state) => state.cats);
+    console.log(items)
+
     const currentCategory = useSelector( state => state.cats.activeCategory);
     
-    const initCats = () => {
-        dispatch(initialize());
-    }
-    // initCats();
+    // const initCats = (item) => {
+    //     dispatch(actions.get(item));
+    // }
 
-    const active = (payload) => {
-        dispatch(activeCat(payload));
-    } 
+    // const active = (payload) => {
+    //     dispatch(actions.activeCat(payload));
+    // } 
 
-    function handleClick(item){
+    // function handleClick(item){
         
-        active(item.displayName)
-        // console.log('fudkadfs', item)
-    }
+    //     active(item.displayName)
+    //     // console.log('fudkadfs', item)
+    // }
+
+    useEffect ( () => {
+        dispatch(actions.get())
+    },[])
+
+    
 
     return(
         <>
-        <h1>Our Categories</h1>
-            <div >
-                <ul>{initCats()}
-                    {categoriesMap.map((item) => {
-                        return (
-                            <li key={Math.random()} onClick={() => handleClick(item)}>
-                        {item.name}
-                        </li>
-                    //if the quantity is 0 don't return/or return null.
-                    )
-                }
-                )}
-                </ul> 
-                <h2 >{currentCategory} </h2>
-            </div>
+            <h2>WHATS UP</h2>
+            <ul >
+                {items.map( (item) => 
+                    <li key={item._id}> 
+                        HELLO: {item.text}
+                    </li>              
+                )}      
+            </ul>
         </>
     )
 }

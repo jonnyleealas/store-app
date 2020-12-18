@@ -1,50 +1,37 @@
-const initialState = {
-    categories:[{
-      name:"Electronics",
-      displayName: "ELECTRONICS",
-      description: "do stuff",
-      isActive: false
-    },
-    {
-      name:"Food",
-      displayName: "FOOD",
-      description: "do stuff",
-      isActive: false
-    },
-    {
-      name:"Furniture",
-      displayName: "FURNITURE",
-      description: "do stuff",
-      isActive: false
-    }],
-    activeCategory: '',
-}
+import axios from 'axios';
+
+const initialState =[];
+
+
+// {
+//     categories:[],
+//     // activeCategory: '',
+// }
 
 export default function reducer( state = initialState, action){
   const {type, payload} = action;
 
   switch(type){
-    case 'INITIALIZE':
-        return{ categories: state.categories, activeCategory: state.activeCategory}
+    case 'GET':
+        return payload;
         
     case 'ACTIVE_CATEGORY':
         return { categories: state.categories, activeCategory: payload }
-    
-    // case 'INCREMENT':
-    //     return {}
-      
     
     default:
       return state;   
           
   }
 }
+let api = 'https://api-js401.herokuapp.com/api/v1/todo';
 
-  export const initialize = (category)=>{
-    return{
-        type: 'INITIALIZE',
-        payload: category
-  }
+  export const get = () => async dispatch =>{
+    const response = await axios.get(api);
+    const items = response.data.results;
+    dispatch({
+      type: 'GET',
+      payload: items
+    });
 }
 
 export const activeCat = (payload) => {

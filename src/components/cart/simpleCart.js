@@ -13,7 +13,7 @@ export default function SimpleCart() {
 
   //state comes from index.js
   const currentCart = useSelector((state) => state.cart);
-  console.log("currentCart :::", currentCart)
+  // console.log("currentCart :::", currentCart)
 
 
   const addItem = (item) => {
