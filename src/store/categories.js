@@ -1,15 +1,14 @@
 import axios from 'axios';
 
-const initialState = 
-  [];
+const initialState = {
+  category : [],
+  activeCategory : ''
+}
 
 
 
 
-// {
-//     categories:[],
-//     // activeCategory: '',
-// }
+
 
 export default function reducer( state = initialState, action){
   const {type, payload} = action;
@@ -43,8 +42,8 @@ let api = 'https://api-js401.herokuapp.com/api/v1/categories/';
 
 let api2 = 'https://api-js401.herokuapp.com/api/v1/products/';
 export const getProducts = (payload) => async dispatch =>{
-  // const response = await axios.get(`${api}/${products}`);
-  const response = await axios.get(`${api2}/${payload.category}`);
+  console.log(payload,'PAYLOAD')
+  const response = await axios.get(api2);
   const items = response.data.results;
   dispatch({
     type: 'GET_PRODUCTS',

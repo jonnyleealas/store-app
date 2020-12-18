@@ -17,14 +17,13 @@ export default function Categories() {
     //     dispatch(actions.get(item));
     // }
 
-    // const active = (payload) => {
-    //     dispatch(actions.activeCat(payload));
-    // } 
+    const active = (payload) => {
+        dispatch(actions.activeCat(payload));
+    } 
 
     function handleClick(item){
-        dispatch(actions.getProducts())
-        // active(item.category)
-        console.log('fudkadfs', item)
+        dispatch(active(item.name))
+        
     }
 
     useEffect ( () => {
