@@ -16,11 +16,11 @@ export default function reducer( state = initialState, action){
         return {...state, categories: payload, activeCategory: payload[0]}
 
   
-          // case 'GET_PRODUCTS':
-          //     return payload;
+    // case 'GET_PRODUCTS':
+    //           return payload;
         
-    // case 'ACTIVE_CATEGORY':
-    //     return { categories: state.categories, activeCategory: payload }
+    case 'ACTIVE_CATEGORY':
+        return { ...state, activeCategory: payload }
 
     
     default:
@@ -28,9 +28,17 @@ export default function reducer( state = initialState, action){
   }
 }
 
+
+export const activeCat = (payload) => {
+  return{
+    type: 'ACTIVE_CATEGORY',
+    payload: payload
+  }
+} 
+
 let api = 'https://api-js401.herokuapp.com/api/v1/categories';
 
-  export const get = () => async dispatch =>{
+  export const getCategories = () => async dispatch =>{
     const response = await axios.get(api);
     const items = response.data.results;
     dispatch({
@@ -50,12 +58,7 @@ let api = 'https://api-js401.herokuapp.com/api/v1/categories';
 //   });
 // }
 
-// export const activeCat = (payload) => {
-//   return{
-//     type: 'ACTIVE_CATEGORY',
-//     payload: payload
-//   }
-// } 
+
 
 
 
