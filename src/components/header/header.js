@@ -5,24 +5,30 @@ import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
-import SimpleCart from '../cart/simpleCart.js'
+import { useSelector } from 'react-redux';
 
 
-function NavBar (){
-  return(
+
+function NavBar() {
+
+  const currentCart = useSelector((state) => state.cart);
+
+  return (
     <>
-      <AppBar  color="transparent" position="static" style={{marginBottom:20}}>
+      <AppBar color="transparent" position="static" style={{ marginBottom: 20 }}>
         <Toolbar>
-          <IconButton edge="start"  color="inherit" aria-label="menu">
-        
+          <IconButton edge="start" color="inherit" aria-label="menu">
+
           </IconButton>
           <Typography variant="h6" >
-          OUR STORE 
+            OUR STORE
           </Typography>
-          <div style={{marginLeft:"55%"}}>
+          <div style={{ marginLeft: "55%" }}>
             <Button edge="end" color="inherit" ><ShoppingCartIcon />CART</Button>
+
           </div>
-          <SimpleCart />
+          <div>({currentCart.cartTotalQty})</div>
+
         </Toolbar>
       </AppBar>
     </>

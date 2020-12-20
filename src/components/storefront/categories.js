@@ -1,47 +1,38 @@
-import React from "react";
+import React, { useEffect } from "react";
+import axios from 'axios';
 import { useDispatch, useSelector } from 'react-redux';
-import { initialize, activeCat } from '../../store/categories.js'
+import * as actions from '../../store/categories.js';
+import * as productActions from '../../store/products.js';
 
 
 export default function Categories() {
 
     const dispatch = useDispatch();
 
-    let categoriesMap = useSelector((state) => state.cats.categories);
-    const currentCategory = useSelector( state => state.cats.activeCategory);
+    const categories = useSelector(state => state.cats.categories);
+    console.log(categories);
+
+    const activeCategory = useSelector( state => state.cats.activeCategory);
     
-    const initCats = () => {
-        dispatch(initialize());
-    }
-    // initCats();
-
-    const active = (payload) => {
-        dispatch(activeCat(payload));
-    } 
-
     function handleClick(item){
-        
-        active(item.displayName)
-        // console.log('fudkadfs', item)
+        dispatch(productActions.getProducts(item))
+        dispatch(actions.activeCat(item));
     }
+
+    useEffect ( () => {
+        dispatch(actions.getCategories())
+    },[])
 
     return(
         <>
-        <h1>Our Categories</h1>
-            <div >
-                <ul>{initCats()}
-                    {categoriesMap.map((item) => {
-                        return (
-                            <li key={Math.random()} onClick={() => handleClick(item)}>
+            <h2>OUR CATEGORIES: </h2>
+            <ul >
+                {categories.map( (item) => 
+                    <li key={item._id} onClick={() => handleClick(item)}> 
                         {item.name}
-                        </li>
-                    //if the quantity is 0 don't return/or return null.
-                    )
-                }
-                )}
-                </ul> 
-                <h2 >{currentCategory} </h2>
-            </div>
+                    </li>              
+                )}      
+            </ul>
         </>
     )
 }
