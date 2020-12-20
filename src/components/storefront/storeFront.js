@@ -10,8 +10,8 @@ function StoreFront() {
   return (
     <>
       <Categories />
-      <Products />
       <CurrentCategory />
+      <Products />
     </>
   );
 }

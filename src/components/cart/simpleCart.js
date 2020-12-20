@@ -24,7 +24,7 @@ export default function SimpleCart() {
     console.log('DELETE BITCH', item)
     dispatch(actions.removeFromCart(item));
 
-    dispatch(incrementProduct(item))
+    //dispatch(incrementProduct(item))
 
   }
 

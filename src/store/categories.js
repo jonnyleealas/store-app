@@ -1,8 +1,11 @@
+import { Category } from '@material-ui/icons';
 import axios from 'axios';
+
+let api = 'https://api-js401.herokuapp.com/api/v1/categories';
 
 const initialState = {
     categories: [],
-    activeCategory: {}
+    activeCategory: ''
 }
 
 
@@ -11,14 +14,10 @@ export default function reducer( state = initialState, action){
 
   switch(type){
     case 'GET_CATEGORIES':
-      console.log('payload',payload)
+      // console.log('payload',payload)
 
         return {...state, categories: payload, activeCategory: payload[0]}
 
-  
-    // case 'GET_PRODUCTS':
-    //           return payload;
-        
     case 'ACTIVE_CATEGORY':
         return { ...state, activeCategory: payload }
 
@@ -36,7 +35,6 @@ export const activeCat = (payload) => {
   }
 } 
 
-let api = 'https://api-js401.herokuapp.com/api/v1/categories';
 
   export const getCategories = () => async dispatch =>{
     const response = await axios.get(api);
