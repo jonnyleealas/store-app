@@ -3,7 +3,8 @@
 ### Links and Resources
 --->> testing a git commit
 - Class-36 [Pull Request](https://github.com/jonnyleealas/store-app/pull/7)
-<!-- - Class-37 [Pull Request] -->
+- Class-37 [Pull Request](https://github.com/jonnyleealas/store-app/pull/9)
+- Class-37 [Pull Request](https://github.com/jonnyleealas/store-app/pull/21)
 
 - ci/cd (GitHub Actions)
 - back-end server url (when applicable)
@@ -13,7 +14,7 @@
 
  #### [Phase 1 Requirements](https://canvas.instructure.com/courses/2168372/assignments/16248980)
  #### [Phase 2 Requirements](https://canvas.instructure.com/courses/2168372/assignments/16248981)
- <!-- #### [Phase 3 Requirements]()
+ #### [Phase 3 Requirements](https://canvas.instructure.com/courses/2168372/assignments/16248982)
  #### [Phase 4 Requirements]() -->
  #### [Business and Technical Requirements]()
  
