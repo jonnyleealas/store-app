@@ -1,58 +1,64 @@
+import { Category } from '@material-ui/icons';
+import axios from 'axios';
+
+let api = 'https://api-js401.herokuapp.com/api/v1/categories';
+
 const initialState = {
-    categories:[{
-      name:"Electronics",
-      displayName: "ELECTRONICS",
-      description: "do stuff",
-      isActive: false
-    },
-    {
-      name:"Food",
-      displayName: "FOOD",
-      description: "do stuff",
-      isActive: false
-    },
-    {
-      name:"Furniture",
-      displayName: "FURNITURE",
-      description: "do stuff",
-      isActive: false
-    }],
-    activeCategory: '',
+    categories: [],
+    activeCategory: ''
 }
+
 
 export default function reducer( state = initialState, action){
   const {type, payload} = action;
 
   switch(type){
-    case 'INITIALIZE':
-        return{ categories: state.categories, activeCategory: state.activeCategory}
-        
+    case 'GET_CATEGORIES':
+      // console.log('payload',payload)
+
+        return {...state, categories: payload, activeCategory: payload[0]}
+
     case 'ACTIVE_CATEGORY':
-        return { categories: state.categories, activeCategory: payload }
-    
-    // case 'INCREMENT':
-    //     return {}
-      
+        return { ...state, activeCategory: payload }
+
     
     default:
-      return state;   
-          
+      return state;          
   }
 }
 
-  export const initialize = (category)=>{
-    return{
-        type: 'INITIALIZE',
-        payload: category
-  }
-}
 
 export const activeCat = (payload) => {
-  return {
+  return{
     type: 'ACTIVE_CATEGORY',
     payload: payload
   }
+} 
+
+
+  export const getCategories = () => async dispatch =>{
+    const response = await axios.get(api);
+    const items = response.data.results;
+    dispatch({
+      type: 'GET_CATEGORIES',
+      payload: items
+    });
 }
+
+// let api2 = `https://api-js401.herokuapp.com/api/v1/products`;
+// export const getProducts = (_id) => async dispatch =>{
+//   // const response = await axios.get(`${api}/${products}`);
+//   const response = await axios.put(api2);
+//   const items = response.data.results;
+//   dispatch({
+//     type: 'GET_PRODUCTS',
+//     payload: items
+//   });
+// }
+
+
+
+
 
 // anchor or click button for electronics
 // when electronics is clicked take me to electronics products

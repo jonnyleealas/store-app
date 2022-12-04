@@ -1,102 +1,81 @@
-const initialState = {
-  products:[{
-    name:"TV",
-    displayName: "ELECTRONICS",
-    description: "do",
-    quantity: 5
-  },
-  {
-    name:"DVD",
-    displayName: "ELECTRONICS",
-    description: "fruit",
-    quantity: 1
-    },
-  {
-    name:"Computer",
-    displayName: "ELECTRONICS",
-    description: "do stuff",
-    quantity: 3
-  },
+import axios from 'axios';
 
-  {
-    name:"Apple",
-    displayName: "FOOD",
-    description: "do",
-    quantity: 5
-  },
-  {
-    name:"Orange",
-    displayName: "FOOD",
-    description: "fruit",
-    quantity: 1
-    },
-  {
-    name:"Banana",
-    displayName: "FOOD",
-    description: "do stuff",
-    quantity: 3
-  },
-  {
-    name:"Table",
-    displayName: "FURNITURE",
-    description: "do",
-    quantity: 5
-  },
-  {
-    name:"Chair",
-    displayName: "FURNITURE",
-    description: "fruit",
-    quantity: 1
-    },
-  {
-    name:"Couch",
-    displayName: "FURNITURE",
-    description: "do stuff",
-    quantity: 3
-  }] 
+let api = 'https://api-js401.herokuapp.com/api/v1/products';
+const initialState = []
+
+
+export default function reducer(state = initialState, action) {
+  const { type, payload } = action;
+
+  switch (type) {
+    
+    case 'GET_PRODUCTS':
+      
+    console.log('HELLO WORLD',payload)
+
+      return payload;
+    // case 'DECREMENT':
+    //   const productsPayload = { ...payload }
+    //   let newItemsArray = productsPayload.map((item) => {
+    //     // payload is onClick and item.name is our state.products.object
+    //     if (payload.name === item.name) {
+    //       item.quantity--
+    //       return item
+    //     } else {
+    //       return item
+    //     }
+    //   })
+
+      //console.log('NEW STATE LOG',newItemsArray)
+      //return { ...state, products: newItemsArray }
+
+    // case 'INCREMENT_PRODUCT':
+    //   let newAddProductsArray = state.products.map((item) => {
+    //     // payload is onClick and item.name is our state.products.object
+    //     if (payload.name === item.name) {
+    //       item.quantity++
+    //       return item
+    //     } else {
+    //       return item
+    //     }
+    //   })
+      // console.log('NEW ADD PRODUCT LIST', newAddProductsArray)
+      //return { ...state, products: newAddProductsArray }
+
+    default:
+      return state;
+
+  }
+
 }
-  
 
-export default function reducer( state = initialState, action){
-const {type, payload} = action;
+export const getProducts = () => async dispatch =>{
+  const response = await axios.get(api);
+  const items = response.data.results;
+  dispatch({
+    type: 'GET_PRODUCTS',
+    payload: items
+  });
+}
 
-  switch(type){
-    case 'INITIALIZE':
-        return{ products: state.products }
-
-    case 'DECREMENT':
-        return {...state, products: state.products}
-    //everytime this is call is take one from quantity ( -1),
-    //then write 
-        
-        default:
-          return state;   
-          
+export const initialize = (product) => {
+  return {
+    type: 'INITIALIZE',
+    payload: product
+  }
+}
+// decrement stock
+export const decrementQuantity = (product) => {
+  return {
+    type: 'DECREMENT',
+    payload: product
   }
 }
 
-  export const initialize = (product)=>{
-    return{
-        type: 'INITIALIZE',
-        payload: product
+export const incrementProduct = (product) => {
+  return {
+    type: 'INCREMENT_PRODUCT',
+    payload: product
   }
 }
 
-  export const decrementQuantity = (product) => {
-    return{
-      type: 'DECREMENT',
-      payload: product
-    }
-  }
-
-
-
-// anchor or click button for electronics
-// when electronics is clicked take me to electronics products
-// we need a button for food
-// when food is clicked take me to food products
-// import this file where we want to render
-
-
-
-//if products.quantity > 0, return.
